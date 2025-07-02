@@ -73,6 +73,7 @@ BEGIN
     );
 END
 
+-- Check that the data upload has been successful and correct.
 SELECT count(*) from bronze.crm_cust_info;
 SELECT count(*) from bronze.crm_prd_info;
 SELECT count(*) from bronze.crm_sales_details;
