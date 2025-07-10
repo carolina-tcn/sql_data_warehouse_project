@@ -204,10 +204,10 @@ BEGIN
 		SELECT
 			REPLACE(cid, '-', '') AS cid, 
 			CASE
-				WHEN TRIM(cntry) = 'DE' THEN 'Germany'
-				WHEN TRIM(cntry) IN ('US', 'USA') THEN 'United States'
-				WHEN TRIM(cntry) = '' OR cntry IS NULL THEN 'n/a'
-				ELSE TRIM(cntry)
+				WHEN REPLACE(REPLACE(TRIM(cntry), CHAR(13), ''), CHAR(10), '') = 'DE' THEN 'Germany'
+				WHEN REPLACE(REPLACE(TRIM(cntry), CHAR(13), ''), CHAR(10), '') IN ('US', 'USA') THEN 'United States'
+				WHEN REPLACE(REPLACE(TRIM(cntry), CHAR(13), ''), CHAR(10), '') = '' OR cntry IS NULL THEN 'n/a'
+				ELSE REPLACE(REPLACE(TRIM(cntry), CHAR(13), ''), CHAR(10), '')
 			END AS cntry -- Normalize and Handle missing or blank country codes
 		FROM bronze.erp_loc_a101;
 	    SET @end_time = GETDATE();
