@@ -1,7 +1,5 @@
 # Data Warehouse and Analytics Project
 
-This project demonstrates a comprehensive data warehousing and analytics solution, from building a warehouse to generating actionable insights.
-
 ## 📖 Project Overview
 This project involves:
 
